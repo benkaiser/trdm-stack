@@ -1,0 +1,3 @@
+#!/bin/sh
+
+docker-compose exec mariadb mysql -u user -ptestpassword -D app

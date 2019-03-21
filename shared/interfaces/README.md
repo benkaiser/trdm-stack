@@ -1,0 +1,1 @@
+This folder is for shared typescript interfaces between the client and the server.

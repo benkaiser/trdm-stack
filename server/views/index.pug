@@ -1,0 +1,13 @@
+extends layout.pug
+
+block content
+  div#react
+
+block scripts
+  script.
+    const env = !{env ? JSON.stringify(env).replace(/<\//g, "<\\/") : '{}'}
+  script(src='/static/js/bundle.js', type='text/javascript')
+
+block stylesheets
+  link(id='theme' href='//cdnjs.cloudflare.com/ajax/libs/bootswatch/4.2.1/lux/bootstrap.min.css', rel='stylesheet')
+  link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet')

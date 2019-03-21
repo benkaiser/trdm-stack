@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "lib": ["es5", "dom", "es2015.promise"],
+    "outDir": "./lib",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "declaration": true,
+    "module": "commonjs",
+    "target": "es5",
+    "jsx": "react",
+    "experimentalDecorators": true
+  },
+  "include": [
+    "./ts/**/*"
+  ]
+}

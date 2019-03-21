@@ -1,0 +1,77 @@
+{
+  "name": "trdm-stack",
+  "version": "0.0.1",
+  "description": "Starter Typescript-React-Docker-MariaDB Stack",
+  "main": "index.js",
+  "author": "Benjamin Kaiser <benjaminjkaiser@gmail.com>",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "development": "./node_modules/webpack/bin/webpack.js --config ./client/webpack.config.js --watch & ts-node-dev --project server/tsconfig.json --respawn --transpileOnly ./server/index.ts & npm run watch_yarn",
+    "start": "npm run build && node ./server/build/index.js",
+    "build": "./node_modules/webpack/bin/webpack.js --config ./client/webpack.config.js && tsc -p ./server/",
+    "watch_yarn": "npm-watch run_yarn",
+    "run_yarn": "yarn"
+  },
+  "watch": {
+    "run_yarn": {
+      "patterns": [
+        "yarn.lock"
+      ]
+    }
+  },
+  "dependencies": {
+    "@types/autobind-decorator": "^2.1.0",
+    "@types/body-parser": "^1.17.0",
+    "@types/cookie-parser": "^1.4.1",
+    "@types/dotenv": "^6.1.0",
+    "@types/express-session": "^1.15.11",
+    "@types/react": "^16.7.20",
+    "@types/react-alert": "^4.0.0",
+    "@types/react-dom": "^16.0.11",
+    "@types/react-router-dom": "^4.3.1",
+    "@types/react-spinkit": "^3.0.5",
+    "@types/socket.io": "^2.1.2",
+    "@types/socket.io-client": "^1.4.32",
+    "@uifabric/utilities": "^6.29.1",
+    "autobind-decorator": "^2.4.0",
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "css-loader": "^0.28.7",
+    "dotenv": "^6.1.0",
+    "express": "^4.14.0",
+    "express-mysql-session": "^2.1.0",
+    "express-session": "^1.14.2",
+    "filewatcher": "^3.0.1",
+    "node-sass": "^4.11.0",
+    "npm-watch": "^0.6.0",
+    "pug": "^2.0.0-beta6",
+    "react": "^16.5.0",
+    "react-alert": "^5.1.0",
+    "react-bootstrap": "^1.0.0-beta.5",
+    "react-dom": "^16.5.0",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-router-global-history": "^1.0.2",
+    "react-spinkit": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "socket.io": "^2.1.1",
+    "socket.io-client": "^2.1.1",
+    "style-loader": "^0.19.0",
+    "ts-node-dev": "^1.0.0-pre.32",
+    "typeorm": "^0.2.12",
+    "typescript": "^3.2.4",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1"
+  },
+  "optionalDependencies": {},
+  "devDependencies": {
+    "ts-loader": "^5.3.3"
+  },
+  "jshintConfig": {
+    "esversion": 6
+  },
+  "jscsConfig": {
+    "requireTrailingComma": false
+  }
+}

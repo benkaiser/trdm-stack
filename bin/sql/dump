@@ -1,0 +1,3 @@
+#!/bin/sh
+
+docker-compose exec mariadb mysqldump -u user -ptestpassword app

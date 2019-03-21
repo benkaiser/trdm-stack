@@ -1,0 +1,6 @@
+.env
+node_modules/*
+cookies/*
+client/lib/*
+static/js/*
+!cookies/README.md

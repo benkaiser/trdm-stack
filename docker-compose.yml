@@ -1,0 +1,29 @@
+mariadb:
+  image: mariadb
+  environment:
+    MYSQL_ROOT_PASSWORD: testpassword
+    MYSQL_DATABASE: app
+    MYSQL_USER: user
+    MYSQL_PASSWORD: testpassword
+  volumes:
+  - /var/trdm-stack-mysql:/var/lib/mysql
+web:
+  build: .
+  command: npm run development
+  dockerfile: Dockerfile.local
+  environment:
+    PORT: 5656
+    ENV: development
+    APP_URL: 'http://localhost:5656'
+    MYSQL_HOST: mariadb
+    MYSQL_PORT: 3306
+    MYSQL_USER: user
+    MYSQL_PASSWORD: testpassword
+    MYSQL_DB: app
+  links:
+    - mariadb
+  ports:
+    - "5656:5656"
+  volumes:
+    - .:/app
+    - /app/node_modules
