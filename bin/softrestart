@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-export UID=$(id -u)
-export GID=$(id -g)
+export DUID=$(id -u)
+export DGID=$(id -g)
 docker-compose stop && bin/go

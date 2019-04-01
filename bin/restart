@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 bin/createfolders
-UID=$(id -u) GID=$(id -g) docker-compose down && bin/build && bin/go
+DUID=$(id -u) DGID=$(id -g) docker-compose down && bin/build && bin/go

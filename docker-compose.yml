@@ -1,8 +1,8 @@
 mariadb:
   image: linuxserver/mariadb
   environment:
-    PUID: "${UID}"
-    PGID: "${GID}"
+    PUID: "${DUID}"
+    PGID: "${DGID}"
     MYSQL_ROOT_PASSWORD: testpassword
     MYSQL_DATABASE: app
     MYSQL_USER: user
@@ -11,7 +11,7 @@ mariadb:
   - ./mysql:/config
 web:
   build: .
-  user: "${UID}:${GID}"
+  user: "${DUID}:${DGID}"
   command: npm run development
   dockerfile: Dockerfile.local
   environment:
