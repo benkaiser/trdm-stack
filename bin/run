@@ -1,3 +1,5 @@
 #!/bin/sh
 
+export UID=${UID}
+export GID=${GID}
 docker-compose run --rm web /bin/bash -c "$@"

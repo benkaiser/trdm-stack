@@ -1,3 +1,5 @@
 #!/bin/sh
 
+export UID=${UID}
+export GID=${GID}
 docker-compose exec -T mariadb mysql -u user -ptestpassword -D app
