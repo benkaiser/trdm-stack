@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+mkdir -p mysql
+mkdir -p node_modules

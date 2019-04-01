@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 
-export UID=${UID}
-export GID=${GID}
-docker-compose down && bin/build && bin/go
+bin/createfolders
+UID=$(id -u) GID=$(id -g) docker-compose down && bin/build && bin/go

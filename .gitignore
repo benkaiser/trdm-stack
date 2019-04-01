@@ -3,4 +3,5 @@ node_modules/*
 cookies/*
 client/lib/*
 static/js/*
+mysql/*
 !cookies/README.md
