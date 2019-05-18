@@ -13,29 +13,38 @@ import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOpti
 
 var MySQLStore = require('express-mysql-session')(session);
 
-var options = {
+var options: any = {
   host: process.env.MYSQL_HOST,
   port: process.env.MYSQL_PORT || 3306,
-  user: process.env.MYSQL_USER,
+  username: process.env.MYSQL_USER,
   password: process.env.MYSQL_PASSWORD,
   database: process.env.MYSQL_DB || 'app'
 }
+var sessionStore;
+
+if (process.env.DATABASE_URL) {
+  const dbURL = new URL(process.env.DATABASE_URL);
+  options.host = dbURL.hostname;
+  options.port = dbURL.port;
+  options.username = dbURL.username;
+  options.password = dbURL.password;
+  options.database = dbURL.pathname.substr(1);
+}
+
+sessionStore = new MySQLStore({
+  ...options,
+  user: options.username
+});
 
 createConnection({
   type: 'mariadb',
-  host: options.host,
-  port: options.port,
-  username: options.user,
-  password: options.password,
-  database: options.database,
-  entities: [/* Models */],
-  synchronize: true, // set this to false for prod
+  ...options,
+  entities: [ /* models */ ],
+  synchronize: true /* set to false for prod */,
   charset: 'utf8mb4'
 } as MysqlConnectionOptions).then(() => {
   console.log('Connected to DB');
 });
-
-var sessionStore = new MySQLStore(options);
 
 sessionStore.on('error', (error: Error) => {
   assert.ifError(error);
