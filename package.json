@@ -43,7 +43,7 @@
     "express-mysql-session": "^2.1.0",
     "express-session": "^1.16.2",
     "filewatcher": "^3.0.1",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.1",
     "npm-watch": "^0.6.0",
     "pug": "^2.0.4",
     "react": "^16.5.0",
